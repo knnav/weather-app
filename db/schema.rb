@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_03_005954) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_03_011004) do
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "iata"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "forecasts", force: :cascade do |t|
     t.float "fahrenheit_temp"
     t.float "celsius_temp"
