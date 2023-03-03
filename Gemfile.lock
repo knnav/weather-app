@@ -95,6 +95,10 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.12.0)
+    faraday (2.7.4)
+      faraday-net_http (>= 2.0, < 3.1)
+      ruby2_keywords (>= 0.0.4)
+    faraday-net_http (3.0.2)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
@@ -181,6 +185,7 @@ GEM
       actionpack (>= 5.2)
       railties (>= 5.2)
     rexml (3.2.5)
+    ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     selenium-webdriver (4.8.1)
       rexml (~> 3.2, >= 3.2.5)
@@ -234,6 +239,7 @@ DEPENDENCIES
   capybara
   debug
   devise
+  faraday
   importmap-rails
   jbuilder
   puma (~> 5.0)
