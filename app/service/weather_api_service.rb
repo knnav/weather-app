@@ -1,13 +1,9 @@
-class WeatherApiService
+class WeatherApiService < BaseService
   def initialize(iata)
     @iata = iata
   end
 
-  def self.call(iata)
-    self.new(iata).fetch
-  end
-
-  def fetch
+  def execute
     response.body
   rescue StandardError
     # To-do: manage this better
