@@ -13,17 +13,10 @@
 
   <body>
     <div class="app-bkg">
-      <h1>WeatherApp</h1>
-      <% if user_signed_in? %>
-        <div>
-          Logged in with <%= current_user.email %>
-        <div>
-      <% else %>
-        <div>
-          You are not logged in, <a href=<%= new_user_registration_path %>>Sign up</a> or <a href=<%= new_user_session_path %>>Log in</a>
-        <div>
-      <% end %>
-      <%= yield %>
+      <%= render 'layouts/navbar' %>
+      <div class="main-content">
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>
