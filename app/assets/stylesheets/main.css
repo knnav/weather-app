@@ -1,0 +1,35 @@
+.app-bkg {
+  background-color: aquamarine;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.results-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 4;
+  align-items: center;
+  justify-content: center;
+}
+
+.past-results-container {
+  flex-grow: 1;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content:space-between;
+  align-items: center;
+}
