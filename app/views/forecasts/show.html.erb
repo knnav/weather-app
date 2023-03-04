@@ -3,3 +3,14 @@
   <div><b><%= @forecast.fahrenheit_temp %> F</b></div>
   <div><b><%= @forecast.celsius_temp %> C</b></div>
 </div>
+
+<% if @past_forecasts.present? %>
+  <div>
+    <h4>Past searches you have made</h4>
+    <% @past_forecasts.each do |past_forecast| %>
+        <h5>Weather in <%= past_forecast.city.name %> at <%= past_forecast.created_at %></h5>
+        <div><b><%= past_forecast.fahrenheit_temp %> F</b></div>
+        <div><b><%= past_forecast.celsius_temp %> C</b></div>
+    <% end %>
+  </div>
+<% end %>

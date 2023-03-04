@@ -7,20 +7,23 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "main", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <h1>WeatherApp</h1>
-    <% if user_signed_in? %>
-      <div>
-        Logged in with <%= current_user.email %>
-      <div>
-    <% else %>
-      <div>
-        You are not logged in, <a href=<%= new_user_registration_path %>>Sign up</a> or <a href=<%= new_user_session_path %>>Log in</a>
-      <div>
-    <% end %>
-    <%= yield %>
+    <div class="app-bkg">
+      <h1>WeatherApp</h1>
+      <% if user_signed_in? %>
+        <div>
+          Logged in with <%= current_user.email %>
+        <div>
+      <% else %>
+        <div>
+          You are not logged in, <a href=<%= new_user_registration_path %>>Sign up</a> or <a href=<%= new_user_session_path %>>Log in</a>
+        <div>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
