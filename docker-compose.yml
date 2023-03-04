@@ -1,0 +1,38 @@
+version: '3.4'
+
+services:
+  app: 
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - weather_app_db
+      - redis
+    ports: 
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - gem_cache:/usr/local/bundle/gems
+      - node_modules:/app/node_modules
+    environment:
+      RAILS_ENV: development
+
+  weather_app_db:
+    image: mysql:8.0
+    ports: 
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: weather
+      MYSQL_ROOT_PASSWORD: strongpass
+    volumes:
+      - db_data:/var/data/db/
+
+  redis:
+    image: redis:5.0.7
+volumes:
+  gem_cache:
+  db_data:
+  node_modules:
+
+
+  
