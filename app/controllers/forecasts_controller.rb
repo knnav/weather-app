@@ -4,7 +4,8 @@ class ForecastsController < ApplicationController
 
   def create
     if params['iata'].present?
-      @forecast = Creators::ForecastService.call(params['iata'], current_user)
+      formatted_iata = params['iata'].upcase
+      @forecast = Creators::ForecastService.call(formatted_iata, current_user)
 
       if @forecast.present?
         redirect_to "/forecast/#{@forecast.id}"
