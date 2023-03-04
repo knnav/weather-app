@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_03_03_011004) do
-  create_table "cities", force: :cascade do |t|
+  create_table "cities", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.float "latitude"
     t.float "longitude"
@@ -20,14 +20,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_03_011004) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "forecasts", force: :cascade do |t|
+  create_table "forecasts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.float "fahrenheit_temp"
     t.float "celsius_temp"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
