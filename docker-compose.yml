@@ -24,6 +24,7 @@ services:
     environment:
       MYSQL_DATABASE: weather
       MYSQL_ROOT_PASSWORD: strongpass
+      MYSQL_ROOT_HOST: '%'
     volumes:
       - db_data:/var/data/db/
 
