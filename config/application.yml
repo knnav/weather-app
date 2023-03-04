@@ -1,0 +1,14 @@
+defaults: &defaults
+  weather_api:
+    base_url: 'https://api.weatherapi.com/v1/'
+    current_weather_endpoint: 'current.json'
+    key: 'aeee604dddcf463ebc734222230403'
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
