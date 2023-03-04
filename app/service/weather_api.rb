@@ -1,8 +1,8 @@
-class WeatherApi
+class WeatherApiService
   # todo: move these to application.yml
   BASE_URL = 'https://api.weatherapi.com/v1/'
   CURRENT_WEATHER_ENDPOINT = 'current.json'
-  API_KEY = '4c60ce722db54419b1c13118230303'
+  API_KEY = 'aeee604dddcf463ebc734222230403'
 
   def initialize(iata)
     @iata = iata
@@ -13,6 +13,8 @@ class WeatherApi
   end
 
   def fetch
+    a=Faraday.get(endpoint)
+    a.body
   end
 
   private
@@ -24,6 +26,6 @@ class WeatherApi
   end
 
   def request_params
-    "?q=#{iata}&key=#{API_KEY}"
+    "q=#{iata}&key=#{API_KEY}"
   end
 end
