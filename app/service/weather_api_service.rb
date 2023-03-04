@@ -4,7 +4,7 @@ class WeatherApiService < BaseService
   end
 
   def execute
-    response.body
+    JSON.parse(response.body)
   rescue StandardError
     # To-do: manage this better
     puts "An error occured while fetching data from weatherapi.com"
