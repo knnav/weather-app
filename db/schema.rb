@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_04_061931) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_04_200858) do
   create_table "cities", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.float "latitude"
@@ -18,8 +18,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_04_061931) do
     t.string "iata"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "region"
-    t.string "country"
+    t.bigint "region_id", null: false
+    t.bigint "country_id", null: false
+    t.index ["country_id"], name: "index_cities_on_country_id"
+    t.index ["region_id"], name: "index_cities_on_region_id"
+  end
+
+  create_table "countries", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "forecasts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -27,6 +35,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_04_061931) do
     t.float "celsius_temp"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "city_id", null: false
+    t.bigint "user_id"
+    t.index ["city_id"], name: "index_forecasts_on_city_id"
+    t.index ["user_id"], name: "index_forecasts_on_user_id"
+  end
+
+  create_table "regions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "country_id", null: false
+    t.index ["country_id"], name: "index_regions_on_country_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -41,4 +61,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_04_061931) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cities", "countries"
+  add_foreign_key "cities", "regions"
+  add_foreign_key "forecasts", "cities"
+  add_foreign_key "forecasts", "users"
+  add_foreign_key "regions", "countries"
 end
