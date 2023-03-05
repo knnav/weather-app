@@ -1,10 +1,10 @@
-<div class="results-container">
+<div class="results-container content-border">
   <h3>Current weather in <%= city_display_name(@forecast.city) %></h3>
   <div><b><%= formatted_weather(@forecast) %></b></div>
 </div>
 
 <% if @past_forecasts.present? %>
-  <div class="past-results-container">
+  <div class="past-results-container content-border">
     <h4>Past searches:</h4>
     <% @past_forecasts.each do |past_forecast| %>
         <h5><%= city_display_name(past_forecast.city) %> at <%= past_forecast.created_at %></h5>
