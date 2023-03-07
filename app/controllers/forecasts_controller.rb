@@ -21,7 +21,7 @@ class ForecastsController < ApplicationController
     @forecast = Forecast.find(params[:id])
 
     if user_signed_in?
-      @past_forecasts = current_user.forecasts.last(11).first(10)
+      @past_forecasts = current_user.forecasts.order(created_at: :desc).first(11).last(10)
     end
   end
 end
