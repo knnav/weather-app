@@ -1,6 +1,6 @@
   <% if user_signed_in? %>
-    <div>
-      Logged in as <%= current_user.email %> <%= button_to "Log out", destroy_user_session_path, method: :delete %>
+    <div class="d-flex flex-row">
+      Logged in as <%= current_user.email %> <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-sm btn-danger ms-3" %>
     </div>
   <% else %>
     <div>
