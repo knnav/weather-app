@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'forecasts#new'
+  root to: 'home#index'
   devise_for :users
 
   resource :forecast, only: [:new, :create, :show] do
