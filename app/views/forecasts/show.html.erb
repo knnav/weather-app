@@ -1,14 +1,14 @@
-<div class="results-container content-border">
+<div class="container bg-secondary bg-gradient rounded m-3 opacity-75 d-flex flex-column justify-content-center align-items-center">
   <h3>Current weather in <%= city_display_name(@forecast.city) %></h3>
-  <div><b><%= formatted_weather(@forecast) %></b></div>
+  <h1 class="display-1"><%= formatted_weather(@forecast) %></h1>
 </div>
 
 <% if @past_forecasts.present? %>
-  <div class="past-results-container content-border">
+  <div class="container bg-secondary bg-gradient rounded m-3 opacity-75 d-flex flex-column justify-content-center align-items-center">
     <h4>Past searches:</h4>
     <% @past_forecasts.each do |past_forecast| %>
-        <h5><%= city_display_name(past_forecast.city) %> at <%= past_forecast.created_at %></h5>
-          <div><b><%= formatted_weather(past_forecast) %></b></div>
+        <p><%= city_display_name(past_forecast.city) %> at <%= past_forecast.created_at %></p>
+        <b><%= formatted_weather(past_forecast) %></b>
     <% end %>
   </div>
 <% end %>
