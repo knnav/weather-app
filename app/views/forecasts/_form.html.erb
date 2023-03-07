@@ -1,5 +1,5 @@
-<%= form_tag(forecast_path, method: "post") do %>
-  <%= label_tag(:iata, 'IATA code of your city:')%>
-  <%= text_field_tag(:iata) %>
-  <%= submit_tag("Search")%>
+<%= form_tag(forecast_path, method: "post", class: 'weather-form') do %>
+  <%= label_tag(:iata, 'IATA code of your city:', class: 'form-label')%>
+  <%= text_field_tag(:iata, '',class: 'form-control') %>
+  <%= submit_tag("Search", class: 'btn btn-info')%>
 <% end %>
