@@ -17,8 +17,8 @@ module Creators
     def create_forecast_object
       if city.present?
         forecast = Forecast.create(
-          fahrenheit_temp: weather_data['temp_c'],
-          celsius_temp: weather_data['temp_f'],
+          fahrenheit_temp: weather_data['temp_f'],
+          celsius_temp: weather_data['temp_c'],
           city: city,
           user: user
         )
