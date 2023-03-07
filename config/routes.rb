@@ -7,8 +7,6 @@ Rails.application.routes.draw do
       get '/:id', to: 'forecasts#show'
     end
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  get '/err_404', to: 'errors#error_404'
 end

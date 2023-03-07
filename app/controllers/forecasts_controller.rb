@@ -11,6 +11,8 @@ class ForecastsController < ApplicationController
         redirect_to "/forecast/#{@forecast.id}"
       end
     end
+  rescue StandardError
+    redirect_to '/err_404' and return
   end
 
   def show

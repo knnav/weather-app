@@ -14,14 +14,22 @@ module Creators
     attr_reader :iata, :city_data
 
     def create
-      City.create(
-        name: city_data['name'],
-        region: region,
-        country: country,
-        latitude: city_data['lat'],
-        longitude: city_data['lon'],
-        iata: iata
-      )
+      if params_present?
+        City.create(
+          name: city_data['name'],
+          region: region,
+          country: country,
+          latitude: city_data['lat'],
+          longitude: city_data['lon'],
+          iata: iata
+        )
+      else
+        nil
+      end
+    end
+
+    def params_present?
+      city_data['name'] && city_data['lat'] && city_data['lon']
     end
 
     def region
