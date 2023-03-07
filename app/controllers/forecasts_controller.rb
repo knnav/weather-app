@@ -5,10 +5,12 @@ class ForecastsController < ApplicationController
   def create
     if params['iata'].present?
       formatted_iata = params['iata'].upcase
-      @forecast = Creators::ForecastService.call(formatted_iata, current_user)
+      Rails.cache.fetch("forecast_for_#{formatted_iata}", expires_in: 30.minutes) do
+        @forecast = Creators::ForecastService.call(formatted_iata, current_user)
 
-      if @forecast.present?
-        redirect_to "/forecast/#{@forecast.id}"
+        if @forecast.present?
+          redirect_to "/forecast/#{@forecast.id}"
+        end
       end
     end
   rescue StandardError
