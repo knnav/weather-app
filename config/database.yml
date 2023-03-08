@@ -7,9 +7,9 @@
 default: &default
   adapter: mysql2
   username: root
-  password: strongpass
+  password: ''
   port: 3306
-  host: weather_app_db
+  host: localhost
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
